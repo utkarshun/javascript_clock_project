@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock Project</title>
+    <link rel="stylesheet" href="/12_Project_01/index.css" />
+    <!-- <link rel="stylesheet" href="/12_Project_01/clock.mp3" /> -->
+  </head>
+  <body>
+    <div class="clock-container">
+      <h1 class="clock">00:00:00</h1>
+    </div>
+    <audio src="/12_Project_01/clock.mp3" preload="auto"></audio>
+    <script>
+      setInterval(() => {
+        const element = document.querySelector(".clock");
+        const sound = document.querySelector("audio");
+        const time = new Date();
+        const option = {
+          timeZone: "Asia/Kolkata",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        };
+        element.textContent = time.toLocaleTimeString("en-US", option);
+        sound.play();
+      }, 1000);
+    </script>
+  </body>
+</html>
